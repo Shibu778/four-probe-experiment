@@ -1,5 +1,6 @@
 # four-probe-experiment
 Virtual Environment for four probe experiment
+This environment can be run from any device with the link given below.
 
 This is the final project made in Material Characterization Laboratory II.
 Team members
