@@ -102,21 +102,24 @@ function cs5() {
 
 //Step 6
 //This step takes parameters from the user and gets the experimental data and returns interval
-var material = 'Ge'
-var i = 8 //mA
-var s = 2 //mm
-var w = 0.66 //mm
-var iT = 300 //K
-var fT = 450 //K
-var a = 3570
-var b = -12.887
-var dataT = []
-var datav = []
-var t = 0
+var material = 'Ge' // initializing the material
+var i = 8       // initializing current in mA
+var s = 2       // initializing probe separation in mm
+var w = 0.66    //iniitializing thickness of the sample in mm
+var iT = 300    // initializing the initial temperature in K
+var fT = 450    // initializing the final temperature in K
+var a = 3570    // initializing the slope of the equation
+var b = -12.887 // initializing the intercept of the equation
+var dataT = []  //variable to store the temperature data
+var datav = []  //variable to store the voltage data
+var t = 0       //initialize the temperature
 
+//Function to bring the step 6 environment to step region
 function ps6() {
   document.getElementById('step_region').innerHTML = document.getElementById("Step6").innerHTML;
 }
+
+//Function to save the data from step 6
 function cs6() {
   material = document.getElementById('material').value
   i = parseFloat(document.getElementById('current').value)
@@ -145,7 +148,7 @@ function ps7() {
   document.getElementById('step_region').innerHTML = document.getElementById("Step7").innerHTML;
 }
 
-// generate
+// function to generate the data
 function generate() {
   dataT = []
   datav = []
@@ -169,7 +172,9 @@ function generate() {
   lnrho = 0;
   rho_0 = 0;
   v = 0;
-  while (t < fT) {
+
+  //Generate the temperature series and calculate the corresponding voltage
+  while (t <= fT) {
     lnrho = (a/t)+b
     rho = Math.exp(lnrho)
     rho_0 = g7*rho
@@ -179,6 +184,7 @@ function generate() {
     datav.push(v)
     t = t+dT
   }
+  // Message to indicate the completion of calculation
   console.log('Loop Ended')
   document.getElementById('calc_complete').innerHTML = "Calculation Completed"
 }
