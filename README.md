@@ -17,3 +17,5 @@ Link for the environment - https://shibu778.github.io/four-probe-experiment/
 
 Following Improvements are yet to be made -
 1. Making the environment more interactive.
+
+Note : Model parameter used for Silicon is not correct.
